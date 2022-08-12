@@ -21,6 +21,7 @@ console.log(isEmail("hello@gmail.com")) // true
 | `toPascalCase`  | string  | capitalize first character of each word
 | `toKebabCase`  | string  | replace space between words with hyphen ( - )
 | `toSnakeCase`  | string  | replace space between words with underscore ( _ ) 
+
 &nbsp;
 ## String Validation
 | Method | output | Explanation
