@@ -1,25 +1,39 @@
 {
   "name": "js-string-helper",
-  "version": "0.0.3",
-  "description": "Common wrapper classes for string",
+  "version": "0.0.33",
+  "description": "Helper module for string to provide support for common functions related to string, except javascript built-in objects.",
   "main": "./dist/index.js",
+  "keywords": [
+    "helper functions",
+    "javascript string",
+    "chnage case",
+    "js string"
+  ],
   "scripts": {
     "build": "tsc",
-    "test": "mocha --reporter spec"
+    "test": "mocha --reporter spec",
+    "tslint": "tslint -p . -c tslint.json",
+    "tslint.fix": "tslint --fix --project ./tsconfig.json"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Sifatul/js-string.git"
+    "url": "git+https://github.com/Sifatul/js-string-helper.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Sifatul Islam <devsifat@gmail.com>",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Sifatul/js-string/issues"
+    "url": "https://github.com/Sifatul/js-string-helper/issues"
   },
-  "homepage": "https://github.com/Sifatul/js-string#readme",
+  "homepage": "https://github.com/Sifatul/js-string-helper#readme",
   "devDependencies": {
     "chai": "^4.3.6",
     "mocha": "^10.0.0",
+    "prettier": "^2.7.1",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.3.0",
+    "tslint-react": "^5.0.0",
+    "tslint-react-hooks": "^2.2.2",
     "typescript": "^4.7.4"
   }
 }
