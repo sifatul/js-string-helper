@@ -1,6 +1,6 @@
 {
   "name": "js-string-helper",
-  "version": "0.0.33",
+  "version": "0.0.34",
   "description": "Helper module for string to provide support for common functions related to string, except javascript built-in objects.",
   "main": "./dist/index.js",
   "keywords": [
