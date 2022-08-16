@@ -1,17 +1,12 @@
 # js-string-helper
 
-Helper module for string to provide support for common functions related to string, except [javascript built-in objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String). It's open source and any one is welcome to add more functions.
+Helper module for string to provide support for common functions related to string, except [javascript built-in objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String). It's open source and any one is welcome to [contribute](https://github.com/sifatul/js-string-helper/blob/913b16a95360eeb9083040cb04c28b17fac2a9e9/CONTRIBUTING.md).
 
 # Installation
 `npm install --save js-string-helper`
 
 # Usage
-```
-import {trim, isEmail, getLinksFromText} from 'js-string-helper'
-
-console.log(isEmail("hello@gmail.com")) // true
-
-```
+`import {trim, isEmail, getLinksFromText} from 'js-string-helper' `
 # Method
 ### Case Styles
 | Method | output | Explanation
@@ -21,27 +16,69 @@ console.log(isEmail("hello@gmail.com")) // true
 | toPascalCase  | string  | capitalize first character of each word
 | toKebabCase  | string  | replace space between words with hyphen ( - )
 | toSnakeCase  | string  | replace space between words with underscore ( _ ) 
+&nbsp; \
+Example: 
+```js
+toTitleCase("hello world")  // Hello World
 
+toCameCase("hello world")  // helloWorld
+
+toPascalCase("hello world")  // HelloWorld
+
+toKebabCase("hello world")  // hello-world
+
+toSnakeCase("hello world")  // hello_world
+``` 
+
+
+&nbsp;
+### URL Validation
+ 
+| Method | output | Explanation
+| ------------- | ------------- | ------------- |
+| isUrl  | boolean  | check whether a string is an URL
+| getDomain  | string  | get domain name of the url
+| hasValidUrlProtocol  | boolean  | check whether a url has valid url protocol
+| removeQueryString  | boolean  | return url without query string
+| getLastPathname  | boolean  | return the last pathname of the url
+
+&nbsp; \
+Example: 
+```js
+const exampleUrl = 'https://www.abc.com/jsref/tryit.asp?query=test'
+
+isUrl(exampleUrl)  // true
+
+getDomain(exampleUrl)  // abc.com
+
+hasValidUrlProtocol(exampleUrl)  // true
+
+removeQueryString(exampleUrl)  // https://www.abc.com/jsref/tryit.asp
+
+getLastPathname(exampleUrl)  // tryit.asp
+``` 
 &nbsp;
 ### String Validation
 | Method | output | Explanation
 | ------------- | ------------- | ------------- |
 | isEmail  | boolean  | check whether a string is email
 | isPhoneNumber  | boolean  | check whether a string is phone number of length 10
-| isUrl  | boolean  | check whether a string is an URL
-| hasValidUrlProtocol  | boolean  | check whether a url has valid url protocol
-
-
-&nbsp;
-### Other 
-
-
-| Method | output | Explanation
-| ------------- | ------------- | ------------- |
-| getLinksFromText  | array  | finds all url/links inside a string
-| removeSpecialCharacter  | string  | remove all special keys from a string
-| clean  | string  | remove all special keys from a string
-| getDomain  | boolean  | check whether a string is an URL and get domain
-
+| getLinksFromText  | string  | extract url from a text
+| removeSpecialCharacter  | string  | return text without any special character
+| clean  | string  | same as removeSpecialCharacter
  
-  
+
+&nbsp; \
+Example: 
+```js
+isEmail("hello@gmail.com")  // true
+
+isPhoneNumber("01095273239")  // true 
+
+getLinksFromText("dummy text of https://www.lipsum.com/ in the printing")  // https://www.lipsum.com/ 
+
+removeSpecialCharacter("Campum efficitur, , pulcherrimum; #sequimur teneam ullo! ")  // Campum efficitur  pulcherrimum sequimur teneam ullo  asp
+
+``` 
+
+

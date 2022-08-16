@@ -4,27 +4,28 @@ const { toTitleCase, toCameCase, toPascalCase, toKebabCase, toSnakeCase } = requ
 
 describe('case change', () => {
 
+  const textExample = "hello world"
   it('should return first character of each word in capital letter', () => {
-    var result = toTitleCase('Lorem Ipsum is simply. dummy text in the printing');
-    expect(result).to.equal('Lorem Ipsum Is Simply. Dummy Text In The Printing');
+    var result = toTitleCase(textExample);
+    expect(result).to.equal('Hello World');
   })
   it('should return first letter of each appended word written with an uppercase letter, except first letter', () => {
-    var result = toCameCase('Lorem ipsum? dolor sit');
-    expect(result).to.equal('loremIpsum?DolorSit');
+    var result = toCameCase(textExample);
+    expect(result).to.equal('helloWorld');
   })
   it('should return first letter of each appended word written with an uppercase letter.', () => {
-    var result = toPascalCase('Lorem ipsum? dolor sit');
-    expect(result).to.equal('LoremIpsum?DolorSit');
+    var result = toPascalCase(textExample);
+    expect(result).to.equal('HelloWorld');
   })
 
   it('should replace space with -', () => {
-    var result = toKebabCase('Lorem ipsum? dolor sit');
-    expect(result).to.equal('Lorem-ipsum?-dolor-sit');
+    var result = toKebabCase(textExample);
+    expect(result).to.equal('hello-world');
   })
 
   it('should replace space with _', () => {
-    var result = toSnakeCase('Lorem ipsum? dolor sit');
-    expect(result).to.equal('Lorem_ipsum?_dolor_sit');
+    var result = toSnakeCase(textExample);
+    expect(result).to.equal('hello_world');
   })
 
 
