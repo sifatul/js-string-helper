@@ -16,6 +16,7 @@ Helper module for string to provide support for common functions related to stri
 | toPascalCase  | string  | capitalize first character of each word
 | toKebabCase  | string  | replace space between words with hyphen ( - )
 | toSnakeCase  | string  | replace space between words with underscore ( _ ) 
+
 &nbsp; \
 Example: 
 ```js
