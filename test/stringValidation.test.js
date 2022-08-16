@@ -32,7 +32,8 @@ describe('string validation', () => {
     expect(result).to.eqls(['https://www.lipsum.com/', 'https://meet.google.com/']);
   })
   it('should return string without any special character', () => {
-    var result = removeSpecialCharacter('Lorem ipsum? dolor sit, a rationem! Campum efficitur, , pulcherrimum; #sequimur teneam ullo! ');
-    expect(result).to.equal('Lorem ipsum dolor sit a rationem Campum efficitur  pulcherrimum sequimur teneam ullo ');
+    var result = removeSpecialCharacter('Lorem ipsum? dolor sit, a rationem! Campum efficitur, , pulcherrimum; #sequimur teneam ullo!123');
+    expect(result).to.equal('Lorem ipsum dolor sit a rationem Campum efficitur  pulcherrimum sequimur teneam ullo123');
   })
+
 })
