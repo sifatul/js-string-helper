@@ -8,31 +8,7 @@ Helper module for string to provide support for common functions related to stri
 # Usage
 `import {trim, isEmail, getLinksFromText} from 'js-string-helper' `
 # Method
-### Case Styles
-| Method | output | Explanation
-| ------------- | ------------- | ------------- | 
-| toTitleCase  | string  | capitalize first character of each word in a string
-| toCameCase  | string  | capitalize first character of each word (except first word)
-| toPascalCase  | string  | capitalize first character of each word
-| toKebabCase  | string  | replace space between words with hyphen ( - )
-| toSnakeCase  | string  | replace space between words with underscore ( _ ) 
 
-&nbsp; \
-Example: 
-```js
-toTitleCase("hello world")  // Hello World
-
-toCameCase("hello world")  // helloWorld
-
-toPascalCase("hello world")  // HelloWorld
-
-toKebabCase("hello world")  // hello-world
-
-toSnakeCase("hello world")  // hello_world
-``` 
-
-
-&nbsp;
 ### URL Validation
  
 | Method | output | Explanation
@@ -41,6 +17,7 @@ toSnakeCase("hello world")  // hello_world
 | getDomain  | string  | get domain name of the url
 | hasValidUrlProtocol  | boolean  | check whether a url has valid url protocol
 | removeQueryString  | boolean  | return url without query string
+| getQueryString  | object  | return object with all the parameter name and parameter value
 | getLastPathname  | boolean  | return the last pathname of the url
 
 &nbsp; \
@@ -55,6 +32,8 @@ getDomain(exampleUrl)  // abc.com
 hasValidUrlProtocol(exampleUrl)  // true
 
 removeQueryString(exampleUrl)  // https://www.abc.com/jsref/tryit.asp
+
+getQueryString(exampleUrl)  // {query:test}
 
 getLastPathname(exampleUrl)  // tryit.asp
 ``` 
@@ -81,5 +60,26 @@ getLinksFromText("dummy text of https://www.lipsum.com/ in the printing")  // ht
 removeSpecialCharacter("Campum efficitur, , pulcherrimum; #sequimur teneam ullo! ")  // Campum efficitur  pulcherrimum sequimur teneam ullo  asp
 
 ``` 
+### Case Styles
+| Method | output | Explanation
+| ------------- | ------------- | ------------- | 
+| toTitleCase  | string  | capitalize first character of each word in a string
+| toCameCase  | string  | capitalize first character of each word (except first word)
+| toPascalCase  | string  | capitalize first character of each word
+| toKebabCase  | string  | replace space between words with hyphen ( - )
+| toSnakeCase  | string  | replace space between words with underscore ( _ ) 
 
+&nbsp; 
+Example: 
+```js
+toTitleCase("hello world")  // Hello World
+
+toCameCase("hello world")  // helloWorld
+
+toPascalCase("hello world")  // HelloWorld
+
+toKebabCase("hello world")  // hello-world
+
+toSnakeCase("hello world")  // hello_world
+``` 
 
