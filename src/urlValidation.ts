@@ -40,15 +40,25 @@ const getLastPathname = (url: string) => {
 };
 const getQueryString = (url: string) => {
   if (!isUrl(url) || !url) throw new Error("Parameter is not a valid url!");
-   
-  return  (url?.split('?')?.[1]?.split('&') || []).reduce((prev:{ [key: string]: string }, curr:string) => {
-    const keyVal = curr.split('=');
-    const key = keyVal[0];
-    const val = keyVal[1];
-    prev[key] = val;
-    return prev;
-  }, {});
-    
+
+  return (url?.split("?")?.[1]?.split("&") || []).reduce(
+    (prev: { [key: string]: string }, curr: string) => {
+      const keyVal = curr.split("=");
+      const key = keyVal[0];
+      const val = keyVal[1];
+      prev[key] = val;
+
+      return prev;
+    },
+    {}
+  );
+};
+const isImageUrl = (url: string) => {
+  if (!isUrl(url) || !url) throw new Error("Parameter is not a valid url!");
+
+  return (
+    url.match(/^http[^\?]*.(jpg|jpeg|gif|png|tiff|bmp)(\?(.*))?$/gim) != null
+  );
 };
 export {
   isUrl,
@@ -56,5 +66,6 @@ export {
   getDomain,
   removeQueryString,
   getLastPathname,
-  getQueryString
+  getQueryString,
+  isImageUrl,
 };

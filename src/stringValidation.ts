@@ -27,7 +27,7 @@ const getLinksFromText = (text: string) => {
 };
 
 const removeSpecialCharacter = (str: string) => {
-  return str.replace(/[^\w\s]/gi, '')
+  return str.replace(/[^\w\s]/gi, "");
 };
 
 const clean = removeSpecialCharacter;

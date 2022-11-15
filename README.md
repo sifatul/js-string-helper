@@ -14,6 +14,7 @@ Helper module for string to provide support for common functions related to stri
 | Method | output | Explanation
 | ------------- | ------------- | ------------- |
 | isUrl  | boolean  | check whether a string is an URL
+| isImageUrl  | boolean  | check whether an URL is link of an image
 | getDomain  | string  | get domain name of the url
 | hasValidUrlProtocol  | boolean  | check whether a url has valid url protocol
 | removeQueryString  | boolean  | return url without query string
@@ -23,19 +24,21 @@ Helper module for string to provide support for common functions related to stri
 &nbsp; \
 Example: 
 ```js
-const exampleUrl = 'https://www.abc.com/jsref/tryit.asp?query=test'
+const exampleUrl = 'https://example.com/img.jpg?param=123&param2=3456'
 
 isUrl(exampleUrl)  // true
 
-getDomain(exampleUrl)  // abc.com
+getDomain(exampleUrl)  // example.com
 
 hasValidUrlProtocol(exampleUrl)  // true
 
-removeQueryString(exampleUrl)  // https://www.abc.com/jsref/tryit.asp
+removeQueryString(exampleUrl)  // https://example.com/img.jpg
 
-getQueryString(exampleUrl)  // {query:test}
+getQueryString(exampleUrl)  // {param:123}
 
-getLastPathname(exampleUrl)  // tryit.asp
+getLastPathname(exampleUrl)  // img.jpg
+
+isImageUrl(exampleUrl)  // true
 ``` 
 &nbsp;
 ### String Validation
@@ -64,7 +67,7 @@ removeSpecialCharacter("Campum efficitur, , pulcherrimum; #sequimur teneam ullo!
 | Method | output | Explanation
 | ------------- | ------------- | ------------- | 
 | toTitleCase  | string  | capitalize first character of each word in a string
-| toCameCase  | string  | capitalize first character of each word (except first word)
+| toCamelCase  | string  | capitalize first character of each word (except first word)
 | toPascalCase  | string  | capitalize first character of each word
 | toKebabCase  | string  | replace space between words with hyphen ( - )
 | toSnakeCase  | string  | replace space between words with underscore ( _ ) 
@@ -74,7 +77,7 @@ Example:
 ```js
 toTitleCase("hello world")  // Hello World
 
-toCameCase("hello world")  // helloWorld
+toCamelCase("hello world")  // helloWorld
 
 toPascalCase("hello world")  // HelloWorld
 

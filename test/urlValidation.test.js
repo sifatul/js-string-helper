@@ -1,19 +1,17 @@
 'use strict';
 var { expect } = require('chai');
-const { isUrl, getDomain, hasValidUrlProtocol, removeQueryString, getLastPathname, getQueryString } = require('../dist/index.js');
+const { isUrl, getDomain, hasValidUrlProtocol, removeQueryString, getLastPathname, getQueryString, isImageUrl } = require('../dist/index.js');
 
 describe('url validation', () => {
-  const urlStr = 'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_regexp_g_2'
-
-
+  const urlStr = 'https://example.com/img.jpg?param1=1234&param2=5678'
   it('isUrl: should return true', () => {
     var result = isUrl(urlStr);
     expect(result).to.equal(true);
   })
 
-  it('getDomain: should return w3schools.com', () => {
+  it('getDomain: should return example.com', () => {
     var result = getDomain(urlStr);
-    expect(result).to.equal('w3schools.com');
+    expect(result).to.equal('example.com');
   })
   it('hasValidUrlProtocol: should return true', () => {
     var result = hasValidUrlProtocol(urlStr);
@@ -21,34 +19,22 @@ describe('url validation', () => {
   })
   it('removeQueryString: should return only the url', () => {
     var result = removeQueryString(urlStr);
-    expect(result).to.equal("https://www.w3schools.com/jsref/tryit.asp");
+    expect(result).to.equal("https://example.com/img.jpg");
   })
   it('getLastPathname: should return only tryit.asp', () => {
     var result = getLastPathname(urlStr);
-    expect(result).to.equal("tryit.asp");
+    expect(result).to.equal("img.jpg");
   })
 
-  it('getQueryString: object with one key value', () => {
+  it('getQueryString: object with two key value', () => {
     var result = getQueryString(urlStr);
-    // .to.deep.equalInAnyOrder(expectedResult);
-    expect(result).to.deep.equal({ 'filename': "tryjsref_regexp_g_2" });
+    expect(result).to.deep.equal({ 'param1': "1234", 'param2': '5678' });
   })
 
-  it('getQueryString: object with two items', () => {
-    const urlStr = 'https://www.w3schools.com/jsref?param1=bilbo&param2=fido'
-
-    var result = getQueryString(urlStr);
-    expect(result).to.deep.equal({ param1: 'bilbo', param2: 'fido' });
+  it('isImageUrl: returns true for an url', () => {
+    var result = isImageUrl(urlStr);
+    expect(result).to.deep.equal(true);
   })
-
-  it('getQueryString: object with two items', () => {
-    const urlStr = 'https://www.w3schools.com/jsref'
-
-    var result = getQueryString(urlStr);
-    expect(result).to.deep.equal({});
-  })
-
-
 
 })
 

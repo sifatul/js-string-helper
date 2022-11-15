@@ -1,6 +1,6 @@
 'use strict';
 var expect = require('chai').expect;
-const { toTitleCase, toCameCase, toPascalCase, toKebabCase, toSnakeCase } = require('../dist/index.js');
+const { toTitleCase, toCamelCase, toPascalCase, toKebabCase, toSnakeCase } = require('../dist/index.js');
 
 describe('case change', () => {
 
@@ -10,7 +10,7 @@ describe('case change', () => {
     expect(result).to.equal('Hello World');
   })
   it('should return first letter of each appended word written with an uppercase letter, except first letter', () => {
-    var result = toCameCase(textExample);
+    var result = toCamelCase(textExample);
     expect(result).to.equal('helloWorld');
   })
   it('should return first letter of each appended word written with an uppercase letter.', () => {
