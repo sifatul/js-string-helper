@@ -24,7 +24,7 @@ Helper module for string to provide support for common functions related to stri
 &nbsp; \
 Example: 
 ```js
-const exampleUrl = 'https://example.com/img.jpg?param=123&param2=3456'
+const exampleUrl = 'https://example.com/img.jpg?param1=1234&param2=5678'
 
 isUrl(exampleUrl)  // true
 
@@ -34,7 +34,7 @@ hasValidUrlProtocol(exampleUrl)  // true
 
 removeQueryString(exampleUrl)  // https://example.com/img.jpg
 
-getQueryString(exampleUrl)  // {param:123}
+getQueryString(exampleUrl)  // { 'param1': "1234", 'param2': '5678' }
 
 getLastPathname(exampleUrl)  // img.jpg
 
